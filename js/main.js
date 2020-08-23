@@ -96,6 +96,30 @@ $(document).ready(function () {
   });
 });
 
+var classha = [];
+
+document.addEventListener("DOMContentLoaded", loadEverything);
+function loadEverything() {
+  if (localStorage.getItem("classha") === null) {
+    classha = [];
+  } else {
+    let data = JSON.parse(localStorage.getItem("classha"));
+    data.forEach(function (fd) {
+      classha.push(
+        new Class(
+          fd.name,
+          fd.times,
+          fd.days,
+          fd.exam_date,
+          new Date(fd.exam_start),
+          new Date(fd.exam_end)
+        )
+      );
+    });
+    console.log(classha);
+  }
+  reloadALL();
+}
 /* 0Shanbe */
 $("#start0").timepicker({
   timeFormat: "HH:mm",
@@ -511,8 +535,6 @@ function E_all(day, time) {
 
 /* End of core functions */
 
-var classha = [];
-
 function bottomTable() {
   return `</tbody>`;
 }
@@ -889,6 +911,10 @@ $("#start").on("click mousedown mouseup focus blur keydown change", function (
 function deleteItem(e) {
   classha.splice(e, 1);
   reloadALL();
+  let data = JSON.stringify(classha, function replacer(key, value) {
+    return value;
+  });
+  localStorage.setItem("classha", data);
 }
 
 async function doEnd() {
@@ -979,7 +1005,8 @@ class Class {
     this.name = name;
     this.times = Times;
     this.days = days;
-    this.exam_date = new Date(exam_date);
+    if (exam_date == "-") this.exam_date = "-";
+    else this.exam_date = new Date(exam_date);
     this.exam_start = exam_start;
     this.exam_end = exam_end;
   }
@@ -1062,7 +1089,7 @@ function getTimes(week0, week1, week2, week3, week4, week5, week6) {
   const e5 = document.querySelector("#end5");
   const e6 = document.querySelector("#end6");
 
-  Times = [];
+  Times = {};
   if (week0) {
     Times["start_0"] = s0.value;
     Times["end_0"] = e0.value;
@@ -1180,7 +1207,13 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     if (emtS.length < 2 || emtE.length < 2)
       alert("ساعت امتحان را نیز مشخص کنید");
   }
-  if (!exit) classha.push(new Class(name, Times, days, emt, emtS, emtE));
+  if (!exit) {
+    classha.push(new Class(name, Times, days, emt, emtS, emtE));
+    let data = JSON.stringify(classha, function replacer(key, value) {
+      return value;
+    });
+    localStorage.setItem("classha", data);
+  }
 }
 
 function Time(time) {
@@ -1205,6 +1238,7 @@ function EnDigit(str) {
 
 function showClassHa() {
   function compare(a, b) {
+    if (a.exam_date == "-" || b.exam_date == "-") return 1;
     if (a.exam_date.getTime() < b.exam_date.getTime()) {
       return -1;
     }
@@ -1216,7 +1250,7 @@ function showClassHa() {
 
   function tt() {
     classha.forEach(function (v, i) {
-      if (isNaN(v.exam_date.getTime())) {
+      if (v.exam_date == "-") {
         //test to see if the id is 3
         classha.push(classha[i]); //push the object to the last position
         classha.splice(i, 1); //remove the object from the current position
@@ -1239,7 +1273,7 @@ function showClassHa() {
   let body = ``;
   let foot = ` </tbody>`;
   for (let i = 0; i < classha.length; i++) {
-    console.log(isNaN(classha[i].exam_date.getTime()));
+    //console.log(isNaN(classha[i].exam_date.getTime()));
     body =
       body +
       `
@@ -1283,7 +1317,10 @@ function onSubmit(e) {
   );
 
   outdate = new Date(mdate);
-  if (date.value == "-") outdate = "-";
+  if (date.value == "-") {
+    console.log("GG");
+    outdate = "-";
+  }
   /*
   dur_value =
     (Time(endIn.value).getTime() - Time(startIn.value).getTime()) / 60000;
@@ -1298,6 +1335,14 @@ function onSubmit(e) {
   );
   reloadALL();
   console.log(classha);
+  function flatten(obj) {
+    var result = Object.create(obj);
+    for (var key in result) {
+      result[key] = result[key];
+    }
+    return result;
+  }
+  console.log(JSON.stringify(flatten(classha)));
 }
 
 function reloadALL() {
