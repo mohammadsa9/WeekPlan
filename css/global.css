@@ -182,17 +182,6 @@ TABLE {
   min-width: 160px;
 }
 
-#emtDate {
-  min-width: 100px;
-}
-
-#start,
-#end,
-#emt_start,
-#emt_end {
-  min-width: 80px;
-}
-
 #week {
   background-color: #2f2f2f;
   border-radius: 15px;
@@ -206,4 +195,8 @@ TABLE {
 
 .input-group-addon {
   color: black !important;
+}
+
+.dayw {
+  width: 120px
 }

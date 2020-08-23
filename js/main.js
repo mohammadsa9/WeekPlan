@@ -94,7 +94,9 @@ $(document).ready(function () {
     responsive: true,
   });
 });
-$("#start").timepicker({
+
+/* 0Shanbe */
+$("#start0").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7",
@@ -104,9 +106,9 @@ $("#start").timepicker({
   dynamic: false,
   dropdown: true,
   scrollbar: true,
-  change: doEnd
+  change: C0,
 });
-$("#end").timepicker({
+$("#end0").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
@@ -116,7 +118,397 @@ $("#end").timepicker({
   dynamic: false,
   dropdown: true,
   scrollbar: true,
+  change: E0,
 });
+
+/* 1Shanbe */
+$("#start1").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C1,
+});
+$("#end1").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E1,
+});
+
+/* 2Shanbe */
+$("#start2").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C2,
+});
+$("#end2").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E2,
+});
+
+/* 3Shanbe */
+$("#start3").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C3,
+});
+$("#end3").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E3,
+});
+
+/* 4Shanbe */
+$("#start4").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C4,
+});
+$("#end4").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E4,
+});
+
+/* 5Shanbe */
+$("#start5").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C5,
+});
+$("#end5").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E5,
+});
+
+/* 6Shanbe */
+$("#start6").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7",
+  maxTime: "22:00",
+  defaultTime: "7:00",
+  startTime: "7:00",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: C6,
+});
+$("#end6").timepicker({
+  timeFormat: "HH:mm",
+  interval: 15,
+  minTime: "7:15",
+  maxTime: "22:00",
+  defaultTime: "7:15",
+  startTime: "7:15",
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true,
+  change: E6,
+});
+
+/* 0Shanbe */
+function C0() {
+  m = "#start0";
+  n = "#end0";
+  i = 0;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E0() {
+  m = "#start0";
+  n = "#end0";
+  i = 0;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 1Shanbe */
+function C1() {
+  m = "#start1";
+  n = "#end1";
+  i = 1;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E1() {
+  m = "#start1";
+  n = "#end1";
+  i = 1;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 2Shanbe */
+function C2() {
+  m = "#start2";
+  n = "#end2";
+  i = 2;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E2() {
+  m = "#start2";
+  n = "#end2";
+  i = 2;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 3Shanbe */
+function C3() {
+  m = "#start3";
+  n = "#end3";
+  i = 3;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E3() {
+  m = "#start3";
+  n = "#end3";
+  i = 3;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 4Shanbe */
+function C4() {
+  m = "#start4";
+  n = "#end4";
+  i = 4;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E4() {
+  m = "#start4";
+  n = "#end4";
+  i = 4;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 5Shanbe */
+function C5() {
+  m = "#start5";
+  n = "#end5";
+  i = 5;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E5() {
+  m = "#start5";
+  n = "#end5";
+  i = 5;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  C_all(i + 1, time1);
+  E_all(i + 1, time2);
+}
+/* 6Shanbe */
+function C6() {
+  m = "#start6";
+  n = "#end6";
+  i = 6;
+  ntime = solidTime(addTime(Time($(m).val()), 15));
+  E_all(i, ntime);
+}
+function E6() {
+  m = "#start6";
+  n = "#end6";
+  i = 6;
+  time1 = solidTime(addTime(Time($(m).val()), 0));
+  time2 = solidTime(addTime(Time($(n).val()), 0));
+  //C_all(i + 1, time1);
+  //E_all(i + 1, time2);
+}
+
+/*  Core Functions */
+function C_all(day, time) {
+  let k = "#start0";
+  switch (day) {
+    case 0:
+      k = "#start0";
+      event = C0;
+      break;
+    case 1:
+      k = "#start1";
+      event = C1;
+      break;
+    case 2:
+      k = "#start2";
+      event = C2;
+      break;
+    case 3:
+      k = "#start3";
+      event = C3;
+      break;
+    case 4:
+      k = "#start4";
+      event = C4;
+      break;
+    case 5:
+      k = "#start5";
+      event = C5;
+      break;
+    case 6:
+      k = "#start6";
+      event = C6;
+      break;
+    default:
+      k = "#start0";
+      event = C0;
+  }
+  try {
+    $(k).timepicker("destroy");
+  } catch {}
+
+  setTimeout(function () {
+    $(k).timepicker({
+      timeFormat: "HH:mm",
+      interval: 15,
+      minTime: "7:00",
+      maxTime: "22:00",
+      defaultTime: time,
+      startTime: time,
+      dynamic: true,
+      dropdown: true,
+      scrollbar: true,
+      change: event,
+    });
+  }, 100);
+}
+
+function E_all(day, time) {
+  let k = "#end0";
+  let event;
+  switch (day) {
+    case 0:
+      k = "#end0";
+      event = E0;
+      break;
+    case 1:
+      k = "#end1";
+      event = E1;
+      break;
+    case 2:
+      k = "#end2";
+      event = E2;
+      break;
+    case 3:
+      k = "#end3";
+      event = E3;
+      break;
+    case 4:
+      k = "#end4";
+      event = E4;
+      break;
+    case 5:
+      k = "#end5";
+      event = E5;
+      break;
+    case 6:
+      k = "#end6";
+      event = E6;
+      break;
+    default:
+      k = "#end0";
+      event = E0;
+  }
+  try {
+    $(k).timepicker("destroy");
+  } catch {}
+  setTimeout(function () {
+    $(k).timepicker({
+      timeFormat: "HH:mm",
+      interval: 15,
+      minTime: time,
+      maxTime: "22:00",
+      defaultTime: time,
+      startTime: time,
+      dynamic: true,
+      dropdown: true,
+      scrollbar: true,
+      change: event,
+    });
+  }, 100);
+}
+
+/* End of core functions */
 
 var classha = [];
 
@@ -348,19 +740,19 @@ function DoDay(dd) {
   });
   let output = "";
   now = Time("7:00");
-  for (let k = 0; k < 60;) {
+  for (let k = 0; k < 60; ) {
     dod = 1;
     dayclass.forEach(function (each) {
       //console.log("C " + each.start + ":" + now);
-      if (now.getTime() === each.start.getTime()) {
-        span = each.duration / 15;
+      if (now.getTime() === each.start(dd).getTime()) {
+        span = each.duration(dd) / 15;
         //console.log("haha");
         output =
           output +
           `<td class="weekboxnormaltc" colspan="${span}">${each.name}</td>`;
         dod = 0;
         k = k + span;
-        now = addTime(now, each.duration);
+        now = addTime(now, each.duration(dd));
       }
     });
     if (dod === 1) {
@@ -486,7 +878,7 @@ function doFill() {
     dynamic: false,
     dropdown: true,
     scrollbar: true,
-    change: doEnd2
+    change: doEnd2,
   });
   $("#emt_end").timepicker({
     timeFormat: "HH:mm",
@@ -521,36 +913,42 @@ async function doEnd2() {
   }, 100);
 }
 class Class {
-  constructor(
-    name,
-    start_time,
-    duration,
-    days,
-    exam_date,
-    exam_start,
-    exam_end
-  ) {
+  constructor(name, Times, days, exam_date, exam_start, exam_end) {
     this.name = name;
-    this.start = start_time;
-    this.duration = duration;
+    this.times = Times;
     this.days = days;
     this.exam_date = new Date(exam_date);
     this.exam_start = exam_start;
     this.exam_end = exam_end;
   }
-
-  end() {
-    return new Date(this.start.getTime() + this.duration * 60000);
+  start(dd) {
+    return Time(this.times["start_" + dd]);
+  }
+  end(dd) {
+    return Time(this.times["end_" + dd]);
+  }
+  duration(dd) {
+    let dur =
+      (Time(this.times["end_" + dd]).getTime() -
+        Time(this.times["start_" + dd]).getTime()) /
+      60000;
+    console.log("dur:" + dur);
+    return dur;
   }
   examName() {
-    if (this.exam_date == "-")
-      return "-";
+    if (this.exam_date == "-") return "-";
     else {
       let st = solidTime(this.exam_start);
       let en = solidTime(this.exam_end);
       try {
         let k = this.exam_date.toLocaleDateString("en-US");
-        return moment.from(k, 'en', 'MM/DD/YYYY').format('jMM/jDD') + "</br>" + st + "-" + en;
+        return (
+          moment.from(k, "en", "MM/DD/YYYY").format("jMM/jDD") +
+          "</br>" +
+          st +
+          "-" +
+          en
+        );
       } catch {
         return "-";
       }
@@ -592,6 +990,55 @@ function getDays(week0, week1, week2, week3, week4, week5, week6) {
   return days;
 }
 
+function getTimes(week0, week1, week2, week3, week4, week5, week6) {
+  const s0 = document.querySelector("#start0");
+  const s1 = document.querySelector("#start1");
+  const s2 = document.querySelector("#start2");
+  const s3 = document.querySelector("#start3");
+  const s4 = document.querySelector("#start4");
+  const s5 = document.querySelector("#start5");
+  const s6 = document.querySelector("#start6");
+
+  const e0 = document.querySelector("#end0");
+  const e1 = document.querySelector("#end1");
+  const e2 = document.querySelector("#end2");
+  const e3 = document.querySelector("#end3");
+  const e4 = document.querySelector("#end4");
+  const e5 = document.querySelector("#end5");
+  const e6 = document.querySelector("#end6");
+
+  Times = [];
+  if (week0) {
+    Times["start_0"] = s0.value;
+    Times["end_0"] = e0.value;
+  }
+  if (week1) {
+    Times["start_1"] = s1.value;
+    Times["end_1"] = e1.value;
+  }
+  if (week2) {
+    Times["start_2"] = s2.value;
+    Times["end_2"] = e2.value;
+  }
+  if (week3) {
+    Times["start_3"] = s3.value;
+    Times["end_3"] = e3.value;
+  }
+  if (week4) {
+    Times["start_4"] = s4.value;
+    Times["end_4"] = e4.value;
+  }
+  if (week5) {
+    Times["start_5"] = s5.value;
+    Times["end_5"] = e5.value;
+  }
+  if (week6) {
+    Times["start_6"] = s6.value;
+    Times["end_6"] = e6.value;
+  }
+  return Times;
+}
+
 function Tadakhol(start1, start2, end1, end2) {
   if (
     (start2 >= start1 && end2 <= end1) ||
@@ -603,11 +1050,12 @@ function Tadakhol(start1, start2, end1, end2) {
   return false;
 }
 
-async function handleData(name, start, dur, days, emt, emtS, emtE) {
+async function handleData(name, Times, days, emt, emtS, emtE) {
   if (name.length == 0) {
     alert("لطفا اسم درس را وارد کنید");
     return false;
   }
+  /*
   if (start < Time("7:00") || start > Time("21:00")) {
     alert("زمان شروع کلاس باید بین 7:00 تا 21:00 باشد");
     return false;
@@ -626,6 +1074,7 @@ async function handleData(name, start, dur, days, emt, emtS, emtE) {
     alert("کلاس باید تا قبل از ساعت 22 پایان یابد");
     return false;
   }
+  */
   if (days.length == 0) {
     alert("حداقل یک روز از هفته باید انتخاب شود");
     return false;
@@ -633,16 +1082,27 @@ async function handleData(name, start, dur, days, emt, emtS, emtE) {
   let exit = false;
   classha.forEach(async function (each) {
     //console.log(`start:${each.start} | end:${each.end()}`);
-    if (Tadakhol(each.start, start, each.end(), end)) {
-      Cday = false;
-      each.days.forEach(async function (day) {
-        if (days.includes(day)) Cday = true;
-      });
-      if (Cday) {
-        alert("زمان کلاس تداخل دارد با " + " " + each.name);
-        exit = true;
-        return false;
+    Cday = false;
+    each.days.forEach(async function (day) {
+      if (days.includes(day)) {
+        console.log(`start:${each.start(day)} | end:${each.end(day)}`);
+        if (
+          Tadakhol(
+            each.start(day),
+            Time(Times["start_" + day]),
+            each.end(day),
+            Time(Times["end_" + day])
+          )
+        ) {
+          Cday = true;
+        }
       }
+    });
+
+    if (Cday) {
+      alert("زمان کلاس تداخل دارد با " + " " + each.name);
+      exit = true;
+      return false;
     }
   });
   classha.forEach(async function (each) {
@@ -665,7 +1125,7 @@ async function handleData(name, start, dur, days, emt, emtS, emtE) {
     if (emtS.length < 2 || emtE.length < 2)
       alert("ساعت امتحان را نیز مشخص کنید");
   }
-  if (!exit) classha.push(new Class(name, start, dur, days, emt, emtS, emtE));
+  if (!exit) classha.push(new Class(name, Times, days, emt, emtS, emtE));
 }
 
 function Time(time) {
@@ -701,7 +1161,8 @@ function showClassHa() {
 
   function tt() {
     classha.forEach(function (v, i) {
-      if (isNaN(v.exam_date.getTime())) { //test to see if the id is 3
+      if (isNaN(v.exam_date.getTime())) {
+        //test to see if the id is 3
         classha.push(classha[i]); //push the object to the last position
         classha.splice(i, 1); //remove the object from the current position
       }
@@ -710,7 +1171,6 @@ function showClassHa() {
   tt();
   tt();
   classha.sort(compare);
-
 
   let head = `<thead>
   <tr>
@@ -725,9 +1185,11 @@ function showClassHa() {
   let foot = ` </tbody>`;
   for (let i = 0; i < classha.length; i++) {
     console.log(isNaN(classha[i].exam_date.getTime()));
-    body = body + `
+    body =
+      body +
+      `
     <tr>
-    <th scope="row">${i+1}</th>
+    <th scope="row">${i + 1}</th>
     <td>${classha[i].name}</td>
     <td>${classha[i].examName()}</td>
     <td>
@@ -755,14 +1217,25 @@ function onSubmit(e) {
     week5.checked,
     week6.checked
   );
+  const TTimes = getTimes(
+    week0.checked,
+    week1.checked,
+    week2.checked,
+    week3.checked,
+    week4.checked,
+    week5.checked,
+    week6.checked
+  );
+
   outdate = new Date(mdate);
   if (date.value == "-") outdate = "-";
+  /*
   dur_value =
     (Time(endIn.value).getTime() - Time(startIn.value).getTime()) / 60000;
+    */
   handleData(
     nameIn.value,
-    Time(startIn.value),
-    dur_value,
+    TTimes,
     days,
     outdate,
     Time(emt_startIn.value),
@@ -785,7 +1258,6 @@ function reloadALL() {
     bottomTable();
   $("#table td").remove();
   table.innerHTML = data;
-
 
   const data2 = showClassHa();
   $("#table2 td").remove();

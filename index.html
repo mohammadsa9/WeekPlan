@@ -21,46 +21,22 @@
         <div class="display-3">برنامه هفتگی</div>
       </div>
 
-      <form
-        id="form"
-        class="container align-items-center justify-content-center"
-      >
+      <form id="form" class="container">
         <div class="row">
-          <div class="col align-items-center justify-content-center">
+          <div class="col">
             <div class="input-group mb-2">
-              <div class="input-group mb-2 mr-2">
-                <span class="input-group-addon">نام درس</span>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-control"
-                  placeholder="نام درس"
-                />
-              </div>
-
-              <div class="input-group mb-2 mr-3">
-                <span class="input-group-addon">مدت کلاس</span>
-                <input
-                  type="text"
-                  readonly
-                  id="start"
-                  class="form-control"
-                  placeholder="شروع کلاس (7:00)"
-                />
-                <span class="input-group-addon">تا</span>
-                <input
-                  type="text"
-                  readonly
-                  id="end"
-                  class="form-control"
-                  placeholder="پایان کلاس (9:00)"
-                />
-              </div>
+              <span class="input-group-addon">نام درس</span>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="نام درس"
+              />
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col align-items-center justify-content-center">
+          <div class="col">
             <div class="input-group mb-2">
               <span class="input-group-addon">تاریخ امتحان</span>
               <input
@@ -74,7 +50,13 @@
               <span class="input-group-addon"
                 ><i class="fa fa-window-close"></i
               ></span>
-              <span class="input-group-addon mr-3">زمان امتحان</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-2">
+              <span class="input-group-addon">زمان امتحان</span>
               <input
                 type="text"
                 readonly
@@ -93,6 +75,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col">
             <div id="week" class="weekDays-selector text-center">
@@ -116,6 +99,144 @@
             </div>
           </div>
         </div>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز شنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start0"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end0"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز یک شنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start1"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end1"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز دوشنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start2"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end2"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز سه شنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start3"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end3"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز چهارشنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start4"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end4"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز پنج شنبه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start5"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end5"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+            <div class="input-group mb-2 mr-3">
+              <span class="input-group-addon dayw">روز جمعه</span>
+              <span class="input-group-addon">مدت کلاس</span>
+              <input
+                type="text"
+                readonly
+                id="start6"
+                class="form-control"
+                placeholder="شروع کلاس (7:00)"
+              />
+              <span class="input-group-addon">تا</span>
+              <input
+                type="text"
+                readonly
+                id="end6"
+                class="form-control"
+                placeholder="پایان کلاس (9:00)"
+              />
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col">
             <button
