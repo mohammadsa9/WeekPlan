@@ -1,0 +1,209 @@
+HTML {
+  direction: rtl;
+}
+
+FONT {
+  font: Nazli, Roya, Koodak, Terafik, Homa, Tahoma, Arial;
+}
+
+BODY {
+  background: white url() fixed no-repeat 80% 50%;
+  /*font-family: Nazli, Roya, Koodak, Terafik, Homa, Tahoma, Arial;*/
+  font-size: 10pt;
+  color: black;
+  background-color: #b3cccc;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+TABLE {
+  /*font-family: Nazli, Roya, Koodak, Terafik, Homa, Tahoma, Arial;*/
+  font-size: 10pt;
+}
+
+/* weekly table --- */
+.weektable {
+  width: 730;
+  border-bottom: 1px solid #646464;
+  border-left: 1px solid #646464;
+  border-right: 1px solid #646464;
+}
+
+.weekhtr {
+  background: url(https://portal.aut.ac.ir/aportal/regadm/style/images/general/toolbars_background.gif);
+  text-align: right;
+}
+
+.weektaer {
+  border-bottom: 1px solid #000000;
+}
+
+.weekdayhtc {
+  color: #ce0000;
+  border-top: 1px solid #646464;
+  border-bottom: 1px solid #646464;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 3px;
+  font-weight: bold;
+  text-align: right;
+  width: 34px;
+  height: 15px;
+}
+
+.weekhtc {
+  color: #ce0000;
+  border-top: 1px solid #646464;
+  border-bottom: 1px solid #646464;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 0px;
+  font-weight: bold;
+  text-align: right;
+  width: 29px;
+  height: 15px;
+}
+
+.weektr {
+  background-color: #ecf3f8;
+  foreground-color: #000000;
+}
+
+.weekdaytc {
+  background-color: #ecf3f8;
+  foreground-color: #ce0000;
+  vertical-align: middle;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: #c8c8c8 1px dotted;
+  border-right: 0px;
+  border-left: 1px solid #646464;
+  border-top: #c8c8c8 0px solid;
+}
+
+.weektc {
+  background-color: #ecf3f8;
+  foreground-color: #000000;
+  vertical-align: top;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: #c8c8c8 1px dotted;
+  border-right: #c8c8c8 1px dotted;
+  border-left: #c8c8c8 0px solid;
+  border-top: #c8c8c8 0px solid;
+}
+
+.weekboxoverlaptc {
+  background-color: #ff8888;
+  foreground-color: #000000;
+  vertical-align: top;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 2px outset white;
+}
+
+.weekboxnormaltc {
+  background-color: #ffffdd;
+  foreground-color: #000000;
+  vertical-align: top;
+  padding: 5px 2px;
+  border: 1px solid #646464;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* New Stuff */
+
+.weekDays-selector input {
+  display: none !important;
+}
+
+.weekDays-selector input[type="checkbox"]+label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 80px;
+  margin-right: 3px;
+  margin-top: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type="checkbox"]:checked+label {
+  /*background: #2ad705;*/
+  background: #0275d8;
+  color: #ffffff;
+}
+
+.footer {
+  background: #6b191c;
+  position: absolute;
+  left: 0;
+  min-width: 1100px;
+  margin-top: 60px;
+}
+
+#first {
+  position: fixed;
+  z-index: 2;
+}
+
+#second {
+  position: fixed;
+  z-index: 1;
+}
+
+.form-control {
+  z-index: 0 !important;
+}
+
+#table2 td,
+#table2 th {
+  border-color: black;
+}
+
+.smallb {
+
+  padding: 2px !important;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+
+#name {
+  min-width: 160px;
+}
+
+#emtDate {
+  min-width: 100px;
+}
+
+#start,
+#end,
+#emt_start,
+#emt_end {
+  min-width: 80px;
+}
+
+#week {
+  background-color: #2f2f2f;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+.dayy {
+  border-radius: 15px !important;
+  border-right: 0px !important;
+}
+
+.input-group-addon {
+  color: black !important;
+}
