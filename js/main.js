@@ -1,5 +1,6 @@
 var pdate;
 $(document).ready(function () {
+  doWeek();
   pdate = $(".example1").persianDatepicker({
     onSelect: doFill,
     inline: false,
@@ -816,6 +817,67 @@ datex.addEventListener("click", doClear);
 //ss.addEventListener("blur", doEnd);
 //ss2.addEventListener("blur", doEnd2);
 
+const week0 = document.querySelector("#weekday-0");
+const week1 = document.querySelector("#weekday-1");
+const week2 = document.querySelector("#weekday-2");
+const week3 = document.querySelector("#weekday-3");
+const week4 = document.querySelector("#weekday-4");
+const week5 = document.querySelector("#weekday-5");
+const week6 = document.querySelector("#weekday-6");
+
+week0.addEventListener("click", doWeek);
+week1.addEventListener("click", doWeek);
+week2.addEventListener("click", doWeek);
+week3.addEventListener("click", doWeek);
+week4.addEventListener("click", doWeek);
+week5.addEventListener("click", doWeek);
+week6.addEventListener("click", doWeek);
+
+const dd0 = document.querySelector(".w0");
+const dd1 = document.querySelector(".w1");
+const dd2 = document.querySelector(".w2");
+const dd3 = document.querySelector(".w3");
+const dd4 = document.querySelector(".w4");
+const dd5 = document.querySelector(".w5");
+const dd6 = document.querySelector(".w6");
+
+function doWeek() {
+  if (!week0.checked) {
+    dd0.style.display = "none";
+  } else {
+    dd0.style.display = "flex";
+  }
+  if (!week1.checked) {
+    dd1.style.display = "none";
+  } else {
+    dd1.style.display = "flex";
+  }
+  if (!week2.checked) {
+    dd2.style.display = "none";
+  } else {
+    dd2.style.display = "flex";
+  }
+  if (!week3.checked) {
+    dd3.style.display = "none";
+  } else {
+    dd3.style.display = "flex";
+  }
+  if (!week4.checked) {
+    dd4.style.display = "none";
+  } else {
+    dd4.style.display = "flex";
+  }
+  if (!week5.checked) {
+    dd5.style.display = "none";
+  } else {
+    dd5.style.display = "flex";
+  }
+  if (!week6.checked) {
+    dd6.style.display = "none";
+  } else {
+    dd6.style.display = "flex";
+  }
+}
 /*
 $("#start").on("click mousedown mouseup focus blur keydown change", function (
   e
@@ -969,13 +1031,6 @@ const emt_endIn = document.querySelector("#emt_end");
 const endIn = document.querySelector("#end");
 //const durIn = document.querySelector('#dur');
 const emtDateIn = document.querySelector("#emtDate");
-const week0 = document.querySelector("#weekday-0");
-const week1 = document.querySelector("#weekday-1");
-const week2 = document.querySelector("#weekday-2");
-const week3 = document.querySelector("#weekday-3");
-const week4 = document.querySelector("#weekday-4");
-const week5 = document.querySelector("#weekday-5");
-const week6 = document.querySelector("#weekday-6");
 const week = document.querySelector("#week");
 
 function getDays(week0, week1, week2, week3, week4, week5, week6) {
