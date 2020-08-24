@@ -200,3 +200,17 @@ TABLE {
 .dayw {
   width: 120px
 }
+
+.w0,
+.w1,
+.w2,
+.w3,
+.w4,
+.w5,
+.w6 {
+  display: none
+}
+
+.cW1 {
+  width: 110px;
+}

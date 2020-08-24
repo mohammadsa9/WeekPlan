@@ -120,12 +120,17 @@ function loadEverything() {
   }
   reloadALL();
 }
+
+const minTime = "7:00";
+const startMaxTime = "21:45";
+const endMaxTime = "22:00";
+
 /* 0Shanbe */
 $("#start0").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -136,8 +141,8 @@ $("#start0").timepicker({
 $("#end0").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7:15",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -150,8 +155,8 @@ $("#end0").timepicker({
 $("#start1").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -163,7 +168,7 @@ $("#end1").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -176,8 +181,8 @@ $("#end1").timepicker({
 $("#start2").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -189,7 +194,7 @@ $("#end2").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -202,8 +207,8 @@ $("#end2").timepicker({
 $("#start3").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -215,7 +220,7 @@ $("#end3").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -228,8 +233,8 @@ $("#end3").timepicker({
 $("#start4").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -241,7 +246,7 @@ $("#end4").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -254,8 +259,8 @@ $("#end4").timepicker({
 $("#start5").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -267,7 +272,7 @@ $("#end5").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -280,8 +285,8 @@ $("#end5").timepicker({
 $("#start6").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
-  minTime: "7",
-  maxTime: "22:00",
+  minTime: minTime,
+  maxTime: startMaxTime,
   defaultTime: "7:00",
   startTime: "7:00",
   dynamic: false,
@@ -293,7 +298,7 @@ $("#end6").timepicker({
   timeFormat: "HH:mm",
   interval: 15,
   minTime: "7:15",
-  maxTime: "22:00",
+  maxTime: endMaxTime,
   defaultTime: "7:15",
   startTime: "7:15",
   dynamic: false,
@@ -467,7 +472,7 @@ function C_all(day, time) {
       timeFormat: "HH:mm",
       interval: 15,
       minTime: "7:00",
-      maxTime: "22:00",
+      maxTime: startMaxTime,
       defaultTime: time,
       startTime: time,
       dynamic: true,
@@ -522,7 +527,7 @@ function E_all(day, time) {
       timeFormat: "HH:mm",
       interval: 15,
       minTime: time,
-      maxTime: "22:00",
+      maxTime: endMaxTime,
       defaultTime: time,
       startTime: time,
       dynamic: true,
@@ -927,7 +932,7 @@ async function doEnd() {
       timeFormat: "HH:mm",
       interval: 15,
       minTime: ntime,
-      maxTime: "22:00",
+      maxTime: endMaxTime,
       defaultTime: ntime,
       startTime: ntime,
       dynamic: true,
@@ -959,8 +964,8 @@ function doFill() {
   $("#emt_start").timepicker({
     timeFormat: "HH:mm",
     interval: 15,
-    minTime: "7",
-    maxTime: "22:00",
+    minTime: minTime,
+    maxTime: startMaxTime,
     defaultTime: "7:00",
     startTime: "7:00",
     dynamic: false,
@@ -972,7 +977,7 @@ function doFill() {
     timeFormat: "HH:mm",
     interval: 15,
     minTime: "7:15",
-    maxTime: "22:00",
+    maxTime: endMaxTime,
     defaultTime: "7:15",
     startTime: "7:15",
     dynamic: false,
@@ -991,7 +996,7 @@ async function doEnd2() {
       timeFormat: "HH:mm",
       interval: 15,
       minTime: ntime,
-      maxTime: "22:00",
+      maxTime: endMaxTime,
       defaultTime: ntime,
       startTime: ntime,
       dynamic: true,
@@ -1021,7 +1026,7 @@ class Class {
       (Time(this.times["end_" + dd]).getTime() -
         Time(this.times["start_" + dd]).getTime()) /
       60000;
-    console.log("dur:" + dur);
+    //console.log("dur:" + dur);
     return dur;
   }
   examName() {
@@ -1167,7 +1172,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     Cday = false;
     each.days.forEach(async function (day) {
       if (days.includes(day)) {
-        console.log(`start:${each.start(day)} | end:${each.end(day)}`);
+        //console.log(`start:${each.start(day)} | end:${each.end(day)}`);
         if (
           Tadakhol(
             each.start(day),
@@ -1318,7 +1323,7 @@ function onSubmit(e) {
 
   outdate = new Date(mdate);
   if (date.value == "-") {
-    console.log("GG");
+    //console.log("GG");
     outdate = "-";
   }
   /*
@@ -1335,6 +1340,7 @@ function onSubmit(e) {
   );
   reloadALL();
   console.log(classha);
+  /*
   function flatten(obj) {
     var result = Object.create(obj);
     for (var key in result) {
@@ -1342,7 +1348,8 @@ function onSubmit(e) {
     }
     return result;
   }
-  console.log(JSON.stringify(flatten(classha)));
+  console.log(JSON.stwwringify(flatten(classha)));
+  */
 }
 
 function reloadALL() {
