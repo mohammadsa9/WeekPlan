@@ -1,3 +1,4 @@
+/* Style By portal.aut.ac.ir */
 HTML {
   direction: rtl;
 }
@@ -30,7 +31,7 @@ TABLE {
 }
 
 .weekhtr {
-  background: url(https://portal.aut.ac.ir/aportal/regadm/style/images/general/toolbars_background.gif);
+  background: url(../img/toolbars_background.gif);
   text-align: right;
 }
 
@@ -117,6 +118,10 @@ TABLE {
   text-align: center;
   vertical-align: middle;
 }
+
+/* End Of Used Style From portal.aut.ac.ir*/
+
+
 
 /* New Stuff */
 
