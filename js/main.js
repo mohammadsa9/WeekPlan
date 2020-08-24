@@ -465,7 +465,7 @@ function C_all(day, time) {
   }
   try {
     $(k).timepicker("destroy");
-  } catch {}
+  } catch (e) {}
 
   setTimeout(function () {
     $(k).timepicker({
@@ -521,7 +521,7 @@ function E_all(day, time) {
   }
   try {
     $(k).timepicker("destroy");
-  } catch {}
+  } catch (e) {}
   setTimeout(function () {
     $(k).timepicker({
       timeFormat: "HH:mm",
@@ -925,7 +925,7 @@ function deleteItem(e) {
 async function doEnd() {
   try {
     $("#end").timepicker("destroy");
-  } catch {}
+  } catch (e) {}
   setTimeout(function () {
     ntime = solidTime(addTime(Time($("#start").val()), 15));
     $("#end").timepicker({
@@ -956,7 +956,7 @@ function doClear() {
   try {
     $("#emt_start").timepicker("destroy");
     $("#emt_end").timepicker("destroy");
-  } catch {}
+  } catch (e) {}
 }
 
 function doFill() {
@@ -988,7 +988,7 @@ function doFill() {
 async function doEnd2() {
   try {
     $("#emt_end").timepicker("destroy");
-  } catch {}
+  } catch (e) {}
   setTimeout(function () {
     //console.log("Here:" + solidTime(addTime(Time(e.target.value), 15)));
     ntime = solidTime(addTime(Time($("#emt_start").val()), 15));
@@ -1043,7 +1043,7 @@ class Class {
           "-" +
           en
         );
-      } catch {
+      } catch (e) {
         return "-";
       }
     }
