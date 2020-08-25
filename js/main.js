@@ -1218,6 +1218,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
       return value;
     });
     localStorage.setItem("classha", data);
+    resetALL();
   }
 }
 
@@ -1370,4 +1371,33 @@ function reloadALL() {
   $("#table2 td").remove();
   $("#table2 th").remove();
   table2.innerHTML = data2;
+}
+
+function resetALL() {
+  const week0 = document.querySelector("#weekday-0");
+  const week1 = document.querySelector("#weekday-1");
+  const week2 = document.querySelector("#weekday-2");
+  const week3 = document.querySelector("#weekday-3");
+  const week4 = document.querySelector("#weekday-4");
+  const week5 = document.querySelector("#weekday-5");
+  const week6 = document.querySelector("#weekday-6");
+
+  week0.checked = false;
+  week1.checked = false;
+  week2.checked = false;
+  week3.checked = false;
+  week4.checked = false;
+  week5.checked = false;
+  week6.checked = false;
+
+  const nameIn = document.querySelector("#name");
+  nameIn.value = "";
+  const emt_startIn = document.querySelector("#emt_start");
+  emt_startIn.value = "";
+  const emt_endIn = document.querySelector("#emt_end");
+  emt_endIn.value = "";
+  const emtDateIn = document.querySelector("#emtDate");
+  //emtDateIn.value = "";
+  C_all(0, "7:00");
+  doWeek();
 }
