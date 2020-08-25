@@ -1393,9 +1393,9 @@ function resetALL() {
   const nameIn = document.querySelector("#name");
   nameIn.value = "";
   const emt_startIn = document.querySelector("#emt_start");
-  emt_startIn.value = "";
+  //emt_startIn.value = "";
   const emt_endIn = document.querySelector("#emt_end");
-  emt_endIn.value = "";
+  //emt_endIn.value = "";
   const emtDateIn = document.querySelector("#emtDate");
   //emtDateIn.value = "";
   C_all(0, "7:00");
