@@ -73,7 +73,7 @@ TABLE {
 
 .weekdaytc {
   vertical-align: middle;
-  padding: 10px;
+  padding: 10px 1px;
 
   border-right: 0px;
   border-left: 2px solid black;
