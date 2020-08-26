@@ -12,50 +12,52 @@ BODY {
   /*font-family: Nazli, Roya, Koodak, Terafik, Homa, Tahoma, Arial;*/
   font-size: 10pt;
   color: black;
-  background-color: #b3cccc;
+  background: rgb(94, 87, 164);
+  background: radial-gradient(
+    circle,
+    rgba(94, 87, 164, 1) 0%,
+    rgba(9, 38, 121, 1) 67%,
+    rgba(0, 0, 0, 1) 100%
+  );
   padding: 0px 0px;
   margin: 0px 0px;
 }
 
 TABLE {
   /*font-family: Nazli, Roya, Koodak, Terafik, Homa, Tahoma, Arial;*/
-  font-size: 10pt;
+  font-size: 0.8rem;
+  background: white;
 }
 
 /* weekly table --- */
 .weektable {
-  width: 730;
-  border-bottom: 1px solid #646464;
-  border-left: 1px solid #646464;
-  border-right: 1px solid #646464;
+  /*width: 730;*/
 }
 
 .weekhtr {
-  background: url(../img/toolbars_background.gif);
+  /*
   text-align: right;
+  */
 }
-
+/*
 .weektaer {
-  border-bottom: 1px solid #000000;
 }
-
+*/
 .weekdayhtc {
-  color: #ce0000;
-  border-top: 1px solid #646464;
-  border-bottom: 1px solid #646464;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-right: 3px;
+  color: black;
+
+  padding: 3px;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
+  /*
   width: 34px;
   height: 15px;
+  */
 }
 
 .weekhtc {
-  color: #ce0000;
-  border-top: 1px solid #646464;
-  border-bottom: 1px solid #646464;
+  color: black;
+
   padding-top: 1px;
   padding-bottom: 1px;
   padding-right: 0px;
@@ -67,61 +69,49 @@ TABLE {
 
 .weektr {
   background-color: #ecf3f8;
-  foreground-color: #000000;
 }
 
 .weekdaytc {
-  background-color: #ecf3f8;
-  foreground-color: #ce0000;
   vertical-align: middle;
-  padding-right: 2px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-bottom: #c8c8c8 1px dotted;
+  padding: 10px;
+
   border-right: 0px;
-  border-left: 1px solid #646464;
-  border-top: #c8c8c8 0px solid;
+  border-left: 2px solid black;
+  border-top: black 1px solid;
+  text-align: center;
 }
 
 .weektc {
-  background-color: #ecf3f8;
-  foreground-color: #000000;
   vertical-align: top;
   padding-right: 2px;
   padding-top: 2px;
-  padding-bottom: 2px;
-  border-bottom: #c8c8c8 1px dotted;
-  border-right: #c8c8c8 1px dotted;
-  border-left: #c8c8c8 0px solid;
-  border-top: #c8c8c8 0px solid;
+  padding-bottom: black 2px solid;
+  border-right: rgb(134, 127, 127) 1px dotted;
+  border-top: black 2px solid;
 }
 
 .weekboxoverlaptc {
   background-color: #ff8888;
-  foreground-color: #000000;
   vertical-align: top;
   padding-right: 2px;
   padding-top: 2px;
   padding-bottom: 2px;
-  border: 2px outset white;
+  border: 1px outset black;
 }
 
 .weekboxnormaltc {
-  background-color: #ffffdd;
-  foreground-color: #000000;
+  background-color: #292626;
+  color: white;
   vertical-align: top;
-  padding: 5px 2px;
-  border: 1px solid #646464;
-  border-bottom: 1px solid #000000;
-  border-top: 1px solid #000000;
+  padding: 5px 3px;
+  border: 1px solid black;
   box-sizing: border-box;
+  font-size: 1rem;
   text-align: center;
   vertical-align: middle;
 }
 
 /* End Of Used Style From portal.aut.ac.ir*/
-
-
 
 /* New Stuff */
 
@@ -129,20 +119,20 @@ TABLE {
   display: none !important;
 }
 
-.weekDays-selector input[type="checkbox"]+label {
+.weekDays-selector input[type="checkbox"] + label {
   display: inline-block;
   border-radius: 6px;
   background: #dddddd;
   height: 40px;
   width: 80px;
   margin-right: 3px;
-  margin-top: 3px;
+  margin-top: 10px;
   line-height: 40px;
   text-align: center;
   cursor: pointer;
 }
 
-.weekDays-selector input[type="checkbox"]:checked+label {
+.weekDays-selector input[type="checkbox"]:checked + label {
   /*background: #2ad705;*/
   background: #0275d8;
   color: #ffffff;
@@ -172,11 +162,12 @@ TABLE {
 
 #table2 td,
 #table2 th {
-  border-color: black;
+  font-size: 1rem;
+  border-top-color: black;
+  border-bottom-color: black;
 }
 
 .smallb {
-
   padding: 2px !important;
   display: inline-block;
   box-sizing: border-box;
@@ -188,14 +179,16 @@ TABLE {
 }
 
 #week {
+  height: 98%;
+  box-sizing: border-box;
   background-color: #2f2f2f;
-  border-radius: 15px;
+  border-radius: 25px;
   opacity: 0.7;
 }
 
 .dayy {
-  border-radius: 15px !important;
-  border-right: 0px !important;
+  border-radius: 1px !important;
+  border: 1px solid white;
 }
 
 .input-group-addon {
@@ -203,7 +196,7 @@ TABLE {
 }
 
 .dayw {
-  width: 120px
+  width: 120px;
 }
 
 .w0,
@@ -213,9 +206,31 @@ TABLE {
 .w4,
 .w5,
 .w6 {
-  display: none
+  display: none;
 }
 
 .cW1 {
   width: 110px;
+}
+
+input {
+  border-radius: 0.2rem !important;
+}
+
+.input-group-addon {
+  border-radius: 0.25rem !important;
+  line-height: 1.75rem;
+  color: black !important;
+  font-size: 1rem;
+}
+
+.wform {
+  border-radius: 0.5rem;
+  border: 1px solid white;
+  padding: 10px;
+  background: black;
+}
+
+#main-footer {
+  background: #000000;
 }

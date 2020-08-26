@@ -549,213 +549,213 @@ function topTable() {
 <tr class="weekhtr">
   <td class="weekdayhtc">ايام</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">7</td>
+  <td class="weekhtc">7</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">8</td>
+  <td class="weekhtc">8</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">9</td>
+  <td class="weekhtc"">9</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">10</td>
+  <td class="weekhtc">10</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">11</td>
+  <td class="weekhtc">11</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">12</td>
+  <td class="weekhtc">12</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">13</td>
+  <td class="weekhtc">13</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">14</td>
+  <td class="weekhtc">14</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">15</td>
+  <td class="weekhtc">15</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">16</td>
+  <td class="weekhtc">16</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">17</td>
+  <td class="weekhtc">17</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">18</td>
+  <td class="weekhtc">18</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">19</td>
+  <td class="weekhtc">19</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">20</td>
+  <td class="weekhtc">20</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">21</td>
+  <td class="weekhtc">21</td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 
-  <td class="weekhtc" align="right" width="28" height="15px">
+  <td class="weekhtc">
     &nbsp;
   </td>
 </tr>`;
