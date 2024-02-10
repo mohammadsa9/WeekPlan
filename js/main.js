@@ -1,5 +1,7 @@
 var pdate;
 $(document).ready(function () {
+  document.querySelector("#edit").style.display = "none";
+  document.querySelector("#cancel").style.display = "none";
   doWeek();
   pdate = $(".example1").persianDatepicker({
     onSelect: doFill,
@@ -116,7 +118,6 @@ function loadEverything() {
         )
       );
     });
-    console.log(classha);
   }
   reloadALL();
 }
@@ -465,7 +466,7 @@ function C_all(day, time) {
   }
   try {
     $(k).timepicker("destroy");
-  } catch (e) {}
+  } catch (e) { }
 
   setTimeout(function () {
     $(k).timepicker({
@@ -521,7 +522,7 @@ function E_all(day, time) {
   }
   try {
     $(k).timepicker("destroy");
-  } catch (e) {}
+  } catch (e) { }
   setTimeout(function () {
     $(k).timepicker({
       timeFormat: "HH:mm",
@@ -762,19 +763,16 @@ function topTable() {
 }
 
 function DoDay(dd) {
-  //console.log("DDdd : " + classha);
   const dayclass = classha.filter(function (each) {
     return each.days.includes(dd);
   });
   let output = "";
   now = Time("7:00");
-  for (let k = 0; k < 60; ) {
+  for (let k = 0; k < 60;) {
     dod = 1;
     dayclass.forEach(function (each) {
-      //console.log("C " + each.start + ":" + now);
       if (now.getTime() === each.start(dd).getTime()) {
         span = each.duration(dd) / 15;
-        //console.log("haha");
         output =
           output +
           `<td class="weekboxnormaltc" colspan="${span}">${each.name}</td>`;
@@ -868,6 +866,7 @@ const dd4 = document.querySelector(".w4");
 const dd5 = document.querySelector(".w5");
 const dd6 = document.querySelector(".w6");
 
+let editItemNo = -1;
 function doWeek() {
   if (!week0.checked) {
     dd0.style.display = "none";
@@ -922,10 +921,86 @@ function deleteItem(e) {
   localStorage.setItem("classha", data);
 }
 
+function getTime(str) {
+  return String(new Date(str).getHours()).padStart(2, '0') + ":" + String(new Date(str).getMinutes()).padStart(2, '0');
+}
+
+function prepareUpdateItem(e) {
+  resetALL();
+  doClear();
+
+  let updateData = classha[e];
+
+  const nameIn = document.querySelector("#name");
+  nameIn.value = updateData["name"];
+
+  if (updateData["exam_date"] != "-") {
+    const emtDateIn = document.querySelector("#emtDate");
+    emtDateIn.value = FaDigit(moment(updateData["exam_date"]).format("jYYYY/jMM/jDD"));
+
+    doFill();
+    const emt_startIn = document.querySelector("#emt_start");
+    emt_startIn.value = getTime(updateData["exam_start"]);
+
+    const emt_endIn = document.querySelector("#emt_end");
+    emt_endIn.value = getTime(updateData["exam_end"]);
+  }
+
+  const weeks = []
+  for (let i = 0; i < 7; i++) {
+    week[i] = document.querySelector("#weekday-" + String(i));
+    if (updateData.days.includes(i)) {
+      week[i].checked = true;
+      C_all(i, updateData.times["start_" + String(i)]);
+      E_all(i, updateData.times["end_" + String(i)]);
+    }
+    doWeek();
+    for (let i = 0; i < 7; i++) {
+      C_all(i, updateData.times["start_" + String(i)]);
+      E_all(i, updateData.times["end_" + String(i)]);
+    }
+  }
+
+  editItemNo = e;
+  document.querySelector("#save").style.display = "none";
+  document.querySelector("#edit").style.display = "inline";
+  document.querySelector("#cancel").style.display = "inline";
+}
+
+function cancelEdit() {
+  editItemNo = -1;
+  resetALL();
+  doClear();
+  reloadALL();
+  document.querySelector("#save").style.display = "inline";
+  document.querySelector("#edit").style.display = "none";
+  document.querySelector("#cancel").style.display = "none";
+}
+
+async function doEdit() {
+  if (editItemNo == -1) {
+    alert("خطایی رخ داده است. مجدد ویرایش کنید.");
+    cancelEdit();
+    return false;
+  }
+  let backup = classha.splice(editItemNo, 1);
+  let success = await onSubmit(new Event("Empty"));
+  if (success != 200) {
+    classha.push(...backup);
+    reloadALL();
+  } else {
+    cancelEdit();
+  }
+  let data = JSON.stringify(classha, function replacer(key, value) {
+    return value;
+  });
+  localStorage.setItem("classha", data);
+}
+
 async function doEnd() {
   try {
     $("#end").timepicker("destroy");
-  } catch (e) {}
+  } catch (e) { }
   setTimeout(function () {
     ntime = solidTime(addTime(Time($("#start").val()), 15));
     $("#end").timepicker({
@@ -956,11 +1031,10 @@ function doClear() {
   try {
     $("#emt_start").timepicker("destroy");
     $("#emt_end").timepicker("destroy");
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function doFill() {
-  //console.log("change");
   $("#emt_start").timepicker({
     timeFormat: "HH:mm",
     interval: 15,
@@ -988,9 +1062,8 @@ function doFill() {
 async function doEnd2() {
   try {
     $("#emt_end").timepicker("destroy");
-  } catch (e) {}
+  } catch (e) { }
   setTimeout(function () {
-    //console.log("Here:" + solidTime(addTime(Time(e.target.value), 15)));
     ntime = solidTime(addTime(Time($("#emt_start").val()), 15));
     $("#emt_end").timepicker({
       timeFormat: "HH:mm",
@@ -1026,7 +1099,6 @@ class Class {
       (Time(this.times["end_" + dd]).getTime() -
         Time(this.times["start_" + dd]).getTime()) /
       60000;
-    //console.log("dur:" + dur);
     return dur;
   }
   examName() {
@@ -1156,7 +1228,6 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     return false;
   }
   end = new Date(start.getTime() + dur * 60000);
-  //console.log("end : " + end);
   if (end > Time("22:00")) {
     alert("کلاس باید تا قبل از ساعت 22 پایان یابد");
     return false;
@@ -1168,11 +1239,9 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
   }
   let exit = false;
   classha.forEach(async function (each) {
-    //console.log(`start:${each.start} | end:${each.end()}`);
     Cday = false;
     each.days.forEach(async function (day) {
       if (days.includes(day)) {
-        //console.log(`start:${each.start(day)} | end:${each.end(day)}`);
         if (
           Tadakhol(
             each.start(day),
@@ -1193,9 +1262,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     }
   });
   classha.forEach(async function (each) {
-    //console.log(`start:${each.start} | end:${each.end()}`);
     if (Tadakhol(each.exam_start, emtS, each.exam_end, emtE)) {
-      //console.log(each.exam_start + ":" + emtS + "|" + each.exam_end + ":" + emtE);
       Cday = false;
       if (emt.exam_date != "-" && emt != "-")
         if (emt.getTime() == each.exam_date.getTime()) {
@@ -1219,6 +1286,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     });
     localStorage.setItem("classha", data);
     resetALL();
+    return 200;
   }
 }
 
@@ -1240,6 +1308,14 @@ function EnDigit(str) {
     return t.charCodeAt(0) - e;
   });
   return str;
+}
+
+function FaDigit(str) {
+  const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+  return str
+    .toString()
+    .replace(/\d/g, x => farsiDigits[x]);
 }
 
 function showClassHa() {
@@ -1272,14 +1348,13 @@ function showClassHa() {
     <th scope="col">#</th>
     <th scope="col">نام درس</th>
     <th scope="col">تاریخ امتحان</th>
-    <th scope="col">حذف</th>
+    <th scope="col">عملیات</th>
   </tr>
 </thead>
 <tbody>`;
   let body = ``;
   let foot = ` </tbody>`;
   for (let i = 0; i < classha.length; i++) {
-    //console.log(isNaN(classha[i].exam_date.getTime()));
     body =
       body +
       `
@@ -1289,20 +1364,22 @@ function showClassHa() {
     <td>${classha[i].examName()}</td>
     <td>
       <button type="button" onclick="deleteItem(${i})" class="btn btn-danger smallb">
-        <i class="fa fa-times"></i>
+        <i class="fa fa-times"><span class="m-2">حذف</span></i>
+        <button type="button" onclick="prepareUpdateItem(${i})" class="btn btn-primary smallb m-3">
+        <i class="fa fa-edit"><span class="m-2">ویرایش</span></i>
       </button>
     </td>
     </tr>`;
   }
+
+
   return head + body + foot;
 }
 
-function onSubmit(e) {
+async function onSubmit(e) {
   e.preventDefault();
-  //console.log("Submit");
   var state = pdate.getState();
   mdate = moment(EnDigit(date.value), "jYYYY/jMM/jDD");
-  //console.log("Date" + mdate.format());
   const days = getDays(
     week0.checked,
     week1.checked,
@@ -1324,14 +1401,13 @@ function onSubmit(e) {
 
   outdate = new Date(mdate);
   if (date.value == "-") {
-    //console.log("GG");
     outdate = "-";
   }
   /*
   dur_value =
     (Time(endIn.value).getTime() - Time(startIn.value).getTime()) / 60000;
     */
-  handleData(
+  let ret = await handleData(
     nameIn.value,
     TTimes,
     days,
@@ -1340,7 +1416,7 @@ function onSubmit(e) {
     Time(emt_endIn.value)
   );
   reloadALL();
-  console.log(classha);
+  return ret;
   /*
   function flatten(obj) {
     var result = Object.create(obj);
@@ -1349,7 +1425,6 @@ function onSubmit(e) {
     }
     return result;
   }
-  console.log(JSON.stwwringify(flatten(classha)));
   */
 }
 

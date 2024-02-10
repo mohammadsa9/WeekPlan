@@ -168,10 +168,10 @@ TABLE {
 }
 
 .smallb {
-  padding: 2px !important;
+  padding: 3px !important;
   display: inline-block;
   box-sizing: border-box;
-  margin: 0 !important;
+  margin: 1 !important;
 }
 
 #name {
