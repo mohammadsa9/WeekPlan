@@ -2,6 +2,7 @@ var pdate;
 $(document).ready(function () {
   document.querySelector("#edit").style.display = "none";
   document.querySelector("#cancel").style.display = "none";
+  document.querySelector("#year").innerHTML = String(new Date().getFullYear());
   doWeek();
   pdate = $(".example1").persianDatepicker({
     onSelect: doFill,
@@ -965,6 +966,7 @@ function prepareUpdateItem(e) {
   document.querySelector("#save").style.display = "none";
   document.querySelector("#edit").style.display = "inline";
   document.querySelector("#cancel").style.display = "inline";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function cancelEdit() {
@@ -979,7 +981,7 @@ function cancelEdit() {
 
 async function doEdit() {
   if (editItemNo == -1) {
-    alert("خطایی رخ داده است. مجدد ویرایش کنید.");
+    alertHook("خطایی رخ داده است. مجدد ویرایش کنید.");
     cancelEdit();
     return false;
   }
@@ -1211,7 +1213,7 @@ function Tadakhol(start1, start2, end1, end2) {
 
 async function handleData(name, Times, days, emt, emtS, emtE) {
   if (name.length == 0) {
-    alert("لطفا اسم درس را وارد کنید");
+    alertHook("info", "لطفا اسم درس را وارد کنید");
     return false;
   }
   /*
@@ -1234,7 +1236,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
   }
   */
   if (days.length == 0) {
-    alert("حداقل یک روز از هفته باید انتخاب شود");
+    alertHook("info", "حداقل یک روز از هفته باید انتخاب شود");
     return false;
   }
   let exit = false;
@@ -1256,7 +1258,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     });
 
     if (Cday) {
-      alert("زمان کلاس تداخل دارد با " + " " + each.name);
+      alertHook("error", "زمان کلاس تداخل دارد با" + " " + each.name);
       exit = true;
       return false;
     }
@@ -1268,7 +1270,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
         if (emt.getTime() == each.exam_date.getTime()) {
           Cday = true;
           if (Cday) {
-            alert("زمان امتحان تداخل دارد با" + " " + each.name);
+            alertHook("error", "زمان امتحان تداخل دارد با" + " " + each.name);
             exit = true;
             return false;
           }
@@ -1277,7 +1279,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
   });
   if (date.value != "-") {
     if (emtS.length < 2 || emtE.length < 2)
-      alert("ساعت امتحان را نیز مشخص کنید");
+      alertHook("info", "ساعت امتحان را نیز مشخص کنید");
   }
   if (!exit) {
     classha.push(new Class(name, Times, days, emt, emtS, emtE));
@@ -1346,7 +1348,7 @@ function showClassHa() {
   let head = `<thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">نام درس</th>
+    <th scope="col" >نام درس</th>
     <th scope="col">تاریخ امتحان</th>
     <th scope="col">عملیات</th>
   </tr>
@@ -1363,9 +1365,9 @@ function showClassHa() {
     <td>${classha[i].name}</td>
     <td>${classha[i].examName()}</td>
     <td>
-      <button type="button" onclick="deleteItem(${i})" class="btn btn-danger smallb">
+      <button type="button" onclick="deleteItem(${i})" class="btn btn-danger btn-lg smallb">
         <i class="fa fa-times"><span class="m-2">حذف</span></i>
-        <button type="button" onclick="prepareUpdateItem(${i})" class="btn btn-primary smallb m-3">
+        <button type="button" onclick="prepareUpdateItem(${i})" class="btn btn-primary btn-lg smallb m-3">
         <i class="fa fa-edit"><span class="m-2">ویرایش</span></i>
       </button>
     </td>
@@ -1475,4 +1477,14 @@ function resetALL() {
   //emtDateIn.value = "";
   C_all(0, "7:00");
   doWeek();
+}
+
+function alertHook(type, msg) {
+  if (type == "error") {
+    Alert.error(msg, "خطا");
+  } else if (type == "info") {
+    Alert.info(msg, "خطا");
+  } else {
+    Alert.warn(msg, "خطا");
+  }
 }
