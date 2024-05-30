@@ -3,6 +3,23 @@ HTML {
   direction: rtl;
 }
 
+@font-face {
+  font-family: 'IRANSansXV';
+  src: url("../fonts/IRANSansXV.woff") format("woff-variations"), url("../fonts/IRANSansXV.woff") format("woff");
+  font-weight: 100 900;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: IRANSansX;
+  src: url("../fonts/IRANSansX-Regular.woff") format("woff")
+}
+
+@font-face {
+  font-family: IRANSansX;
+  src: url("../fonts/IRANSansX-Bold.woff") format("woff");
+  font-weight: 700
+}
 
 BODY {
   font-family: IRANSansXV, IRANSansX, Tahoma !important;
@@ -19,11 +36,15 @@ TABLE {
   width: 100%;
   font-size: 1rem;
   background: white;
+  white-space: nowrap;
+  direction: rtl;
 }
 
 /* weekly table --- */
 .weektable {
   /*width: 730;*/
+  font-size: 0.5rem !important;
+  border: 1px solid black;
 }
 
 .weekhtr {
@@ -68,7 +89,7 @@ TABLE {
   vertical-align: middle;
   padding: 10px 10px;
   width: 29px;
-  border-right: 0px;
+  border-right: 1px;
   border-left: 2px solid black;
   border-top: black 1px solid;
   text-align: center;
@@ -159,6 +180,18 @@ TABLE {
   font-size: 1.6rem;
   border-top-color: black;
   border-bottom-color: black;
+  text-align: center;
+}
+
+#table2 {
+  border: 1px solid black;
+}
+
+.special-border {
+  background: #000000;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
 }
 
 .smallb {
@@ -235,4 +268,8 @@ input {
 
 .footer-border {
   border-top: white 3px solid;
+}
+
+.share {
+  font-size: 1.5rem;
 }

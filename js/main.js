@@ -2,7 +2,7 @@ var pdate;
 $(document).ready(function () {
   document.querySelector("#edit").style.display = "none";
   document.querySelector("#cancel").style.display = "none";
-  document.querySelector("#year").innerHTML = String(new Date().getFullYear());
+  document.querySelector('#plan-owner').innerHTML = document.querySelector('#plan-name').value;
   doWeek();
   pdate = $(".example1").persianDatepicker({
     onSelect: doFill,
@@ -99,6 +99,54 @@ $(document).ready(function () {
   });
 });
 
+var planURL = document.getElementById('plan-url');
+var planName = document.getElementById('plan-name');
+var p_plan_name = localStorage.getItem('plan-name');
+if (p_plan_name) {
+  planName.value = p_plan_name;
+  setShareURL();
+}
+
+function saveClass(data) {
+  localStorage.setItem("classha", data);
+  setShareURL();
+}
+
+function savePlanName(data) {
+  localStorage.setItem("plan-name", data);
+  document.querySelector('#plan-owner').innerHTML = data;
+  setShareURL();
+}
+
+planName.addEventListener('input', (event) => {
+  savePlanName(planName.value);
+  setShareURL();
+});
+
+
+function setShareURL() {
+  if (!planName.value) {
+    planURL.value = "SET YOUR PLAN NAME FIRST"
+    return;
+  }
+  var name = LZString.compressToEncodedURIComponent(planName.value);
+  var compressed = LZString.compressToEncodedURIComponent(localStorage.getItem("classha"));
+  planURL.value = `${window.location.protocol}//${window.location.host}/index.html?preview=${name}&data=${compressed}`;
+}
+
+function copyLink() {
+  setShareURL();
+  planURL.select();
+  planURL.setSelectionRange(0, 99999); // For mobile devices
+  navigator.clipboard.writeText(planURL.value);
+  alertHook("info", "لینک به اشتراک گذاری برنامه کپی شد!");
+}
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const preview = LZString.decompressFromEncodedURIComponent(urlParams.get("preview"));
+const preview_data = urlParams.get("data");
+
 var classha = [];
 
 document.addEventListener("DOMContentLoaded", loadEverything);
@@ -106,7 +154,12 @@ function loadEverything() {
   if (localStorage.getItem("classha") === null) {
     classha = [];
   } else {
-    let data = JSON.parse(localStorage.getItem("classha"));
+    let data;
+    if (preview) {
+      data = JSON.parse(LZString.decompressFromEncodedURIComponent(preview_data));
+    } else {
+      data = JSON.parse(localStorage.getItem("classha"));
+    }
     data.forEach(function (fd) {
       classha.push(
         new Class(
@@ -121,6 +174,49 @@ function loadEverything() {
     });
   }
   reloadALL();
+  if (preview) {
+  enablePreviewMode();
+  document.querySelector('#plan-owner').innerHTML = preview;
+  document.querySelector('#preview-section').style.display = 'block';
+  document.querySelector('#preview-name').innerHTML += ' ' + preview;
+  }
+}
+
+function enablePreviewMode(){
+  const element = document.querySelector('#pdfSection');
+  var colElems = element.querySelectorAll(".actions")
+  for (var i = colElems.length - 1; i >= 0; i--) {
+      colElems[i].remove();
+  }
+
+  document.querySelector('#form').remove();
+  document.querySelector('#share-section').remove();
+}
+
+function usePlan(){
+  if (!preview) {
+    alertHook("error", "حالت پیش‌نمایش فعال نیست!");
+    return;
+  }
+  if (confirm('در صورت تایید برنامه فعلی شما حذف شده و از این برنامه به عنوان برنامه اصلی استفاده می‌شود.')) {
+    let data = JSON.stringify(classha, function replacer(key, value) {
+      return value;
+    });
+    saveClass(data);
+    savePlanName(preview);
+    alertHook("info", "برنامه انتخابی جایگزین شد.");
+    window.location.href = "/";
+  } else {
+    alertHook("info", "عملیات لغو شد.");
+  }
+}
+
+function exitPlan(){
+  if (!preview) {
+    alertHook("error", "حالت پیش‌نمایش فعال نیست!");
+    return;
+  }
+  window.location.href = "/";
 }
 
 const minTime = "7:00";
@@ -776,7 +872,7 @@ function DoDay(dd) {
         span = each.duration(dd) / 15;
         output =
           output +
-          `<td class="weekboxnormaltc" colspan="${span}">${each.name}</td>`;
+          `<td class="weekboxnormaltc" colspan="${span}">${each.name}</br>(${each.times["end_" + String(dd)]}-${each.times["start_" + String(dd)]})</td>`;
         dod = 0;
         k = k + span;
         now = addTime(now, each.duration(dd));
@@ -914,12 +1010,13 @@ $("#start").on("click mousedown mouseup focus blur keydown change", function (
 */
 
 function deleteItem(e) {
+  cancelEdit();
   classha.splice(e, 1);
   reloadALL();
   let data = JSON.stringify(classha, function replacer(key, value) {
     return value;
   });
-  localStorage.setItem("classha", data);
+  saveClass(data);
 }
 
 function getTime(str) {
@@ -996,7 +1093,7 @@ async function doEdit() {
   let data = JSON.stringify(classha, function replacer(key, value) {
     return value;
   });
-  localStorage.setItem("classha", data);
+  saveClass(data);
 }
 
 async function doEnd() {
@@ -1286,7 +1383,7 @@ async function handleData(name, Times, days, emt, emtS, emtE) {
     let data = JSON.stringify(classha, function replacer(key, value) {
       return value;
     });
-    localStorage.setItem("classha", data);
+    saveClass(data);
     resetALL();
     return 200;
   }
@@ -1350,7 +1447,7 @@ function showClassHa() {
     <th scope="col">#</th>
     <th scope="col" >نام درس</th>
     <th scope="col">تاریخ امتحان</th>
-    <th scope="col">عملیات</th>
+    <th scope="col" class="actions">عملیات</th>
   </tr>
 </thead>
 <tbody>`;
@@ -1364,7 +1461,7 @@ function showClassHa() {
     <th scope="row">${i + 1}</th>
     <td>${classha[i].name}</td>
     <td>${classha[i].examName()}</td>
-    <td>
+    <td class="actions">
       <button type="button" onclick="deleteItem(${i})" class="btn btn-danger btn-lg smallb">
         <i class="fa fa-times"><span class="m-2">حذف</span></i>
         <button type="button" onclick="prepareUpdateItem(${i})" class="btn btn-primary btn-lg smallb m-3">
@@ -1483,8 +1580,9 @@ function alertHook(type, msg) {
   if (type == "error") {
     Alert.error(msg, "خطا");
   } else if (type == "info") {
-    Alert.info(msg, "خطا");
+    Alert.info(msg, "توجه");
   } else {
     Alert.warn(msg, "خطا");
   }
 }
+
