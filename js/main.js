@@ -419,8 +419,8 @@ function E0() {
   i = 0;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 1Shanbe */
 function C1() {
@@ -436,8 +436,8 @@ function E1() {
   i = 1;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 2Shanbe */
 function C2() {
@@ -453,8 +453,8 @@ function E2() {
   i = 2;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 3Shanbe */
 function C3() {
@@ -470,8 +470,8 @@ function E3() {
   i = 3;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 4Shanbe */
 function C4() {
@@ -487,8 +487,8 @@ function E4() {
   i = 4;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 5Shanbe */
 function C5() {
@@ -504,8 +504,8 @@ function E5() {
   i = 5;
   time1 = solidTime(addTime(Time($(m).val()), 0));
   time2 = solidTime(addTime(Time($(n).val()), 0));
-  C_all(i + 1, time1);
-  E_all(i + 1, time2);
+  // C_all(i + 1, time1);
+  // E_all(i + 1, time2);
 }
 /* 6Shanbe */
 function C6() {
@@ -582,6 +582,9 @@ function C_all(day, time) {
 }
 
 function E_all(day, time) {
+  let curr_e_time = document.querySelector("#end"+String(i)).value;
+  if (Time(time) <= Time(curr_e_time))
+    return;
   let k = "#end0";
   let event;
   switch (day) {
@@ -1047,16 +1050,13 @@ function prepareUpdateItem(e) {
   const weeks = []
   for (let i = 0; i < 7; i++) {
     week[i] = document.querySelector("#weekday-" + String(i));
+    week[i].checked = false;
     if (updateData.days.includes(i)) {
       week[i].checked = true;
-      C_all(i, updateData.times["start_" + String(i)]);
-      E_all(i, updateData.times["end_" + String(i)]);
+      document.querySelector("#start"+String(i)).value = updateData.times["start_" + String(i)];
+      document.querySelector("#end"+String(i)).value = updateData.times["end_" + String(i)];
     }
     doWeek();
-    for (let i = 0; i < 7; i++) {
-      C_all(i, updateData.times["start_" + String(i)]);
-      E_all(i, updateData.times["end_" + String(i)]);
-    }
   }
 
   editItemNo = e;
@@ -1159,6 +1159,10 @@ function doFill() {
   });
 }
 async function doEnd2() {
+  let curr_e_start = document.querySelector("#emt_start").value;
+  let curr_e_end = document.querySelector("#emt_end").value;
+  if (Time(curr_e_start) <= Time(curr_e_end))
+    return;
   try {
     $("#emt_end").timepicker("destroy");
   } catch (e) { }
@@ -1572,7 +1576,12 @@ function resetALL() {
   //emt_endIn.value = "";
   const emtDateIn = document.querySelector("#emtDate");
   //emtDateIn.value = "";
-  C_all(0, "7:00");
+
+  // C_all(0, "7:00");
+  for (let i = 0; i < 7; i++) {
+    document.querySelector("#start"+String(i)).value = "7:00";
+    document.querySelector("#end"+String(i)).value = "7:15";
+  }
   doWeek();
 }
 
